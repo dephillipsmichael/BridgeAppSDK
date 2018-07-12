@@ -448,7 +448,7 @@ public let SBAMainStoryboardName = "Main"
     // MARK: Onboarding
     // ------------------------------------------------
     
-    private weak var onboardingViewController: UIViewController?
+    public weak var onboardingViewController: UIViewController?
     
     /**
      Should the onboarding be displayed (or ignored)? By default, if there isn't a catasrophic error,

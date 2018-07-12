@@ -65,6 +65,10 @@ open class SBARootViewController: UIViewController {
     }
     private var _state: SBARootViewControllerState = .launch
     
+    public func setState(with newState: SBARootViewControllerState) {
+        _state = newState
+    }
+    
     var contentHidden = false {
         didSet {
             guard contentHidden != oldValue && isViewLoaded else { return }
