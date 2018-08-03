@@ -403,5 +403,15 @@
 + (void)updateRegistrationWithDeviceId:(NSString *)deviceId subscribeToTopicGuids:(NSArray *)topicGuids completion:(SBBNotificationManagerCompletionBlock)completion {
     [SBBComponent(SBBNotificationManager) updateRegistrationWithDeviceId:deviceId subscribeToTopicGuids:topicGuids completion:completion];
 }
+    
++ (void)getAppConfigForStudyId: (NSString*)studyId completion:(SBABridgeManagerCompletionBlock _Nullable)completion {
+    NSString* url = [NSString stringWithFormat:@"/v3/studies/%@/appconfig", studyId];
+    NSMutableDictionary *headers = [NSMutableDictionary dictionary];
+    [SBBComponent(SBBBridgeNetworkManager) get:url headers:headers parameters:nil completion:^(NSURLSessionTask *task, id responseObject, NSError *error) {
+        if (completion) {
+            completion(responseObject, error);
+        }
+    }];
+}
 
 @end

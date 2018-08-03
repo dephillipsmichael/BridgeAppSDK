@@ -316,6 +316,14 @@ typedef void (^SBABridgeManagerCompletionBlock)(id _Nullable responseObject, NSE
 + (void)updateRegistrationWithDeviceId:(NSString *)deviceId completion:(SBBNotificationManagerPostDeviceIdCompletionBlock)completion;
 
 /*!
+ Get a public app config for the study
+ 
+ @param studyId the identifier of the study
+ @param completionBlock  A SBABridgeManagerCompletionBlock to be called upon completion.
+ */
++ (void)getAppConfigForStudyId: (NSString*)studyId completion:(SBABridgeManagerCompletionBlock _Nullable)completion;
+    
+/*!
  Register device for remote notifications and subscribe the user to a list of topic GUIDs
  
  @param deviceId the device id token that was generaged through
