@@ -414,4 +414,12 @@
     }];
 }
 
++ (void)refreshUserSessionWithCompletion:(SBABridgeManagerCompletionBlock _Nullable)completion {
+    [SBBComponent(SBBParticipantManager) updateParticipantJSONToBridge:[NSDictionary new] completion:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        if (completion) {
+            completion(responseObject, error);
+        }
+    }];
+}
+
 @end

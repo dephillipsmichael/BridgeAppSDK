@@ -574,6 +574,14 @@ public extension SBAUserWrapper {
         return (unhandledError, requiresConsent)
     }
 
+    public func refreshUserSessionFromBridge(completion: ((Error?) -> Void)?) {
+        SBABridgeManager.refreshUserSession { (response, error) in
+            if let sessionInfo = SBBObjectManager.default().object(fromBridgeJSON: response) {
+                self.authManager?(nil, didReceiveUserSessionInfo: sessionInfo)
+            }
+            completion?(error)
+        }
+    }
 }
 
 extension Error {

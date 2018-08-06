@@ -322,7 +322,14 @@ typedef void (^SBABridgeManagerCompletionBlock)(id _Nullable responseObject, NSE
  @param completionBlock  A SBABridgeManagerCompletionBlock to be called upon completion.
  */
 + (void)getAppConfigForStudyId: (NSString*)studyId completion:(SBABridgeManagerCompletionBlock _Nullable)completion;
-    
+
+/*!
+ Refresh the user session to reflect changes in data groups, consents, etc.
+ 
+ @param completionBlock  A SBABridgeManagerCompletionBlock to be called upon completion.
+ */
++ (void)refreshUserSessionWithCompletion:(SBABridgeManagerCompletionBlock _Nullable)completion;
+
 /*!
  Register device for remote notifications and subscribe the user to a list of topic GUIDs
  
